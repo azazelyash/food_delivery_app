@@ -26,6 +26,9 @@ class RecentOrders extends StatelessWidget {
               image: AssetImage(order.food.imageUrl),
             ),
           ),
+          Column(
+            children: <Widget>[],
+          )
         ],
       ),
     );
