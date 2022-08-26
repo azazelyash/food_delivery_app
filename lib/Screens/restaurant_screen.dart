@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food_delivery_ui/data/data.dart';
 import 'package:flutter_food_delivery_ui/models/food.dart';
 import 'package:flutter_food_delivery_ui/models/restaurant.dart';
 import 'package:flutter_food_delivery_ui/widgets/rating_stars.dart';
@@ -58,8 +57,33 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.2),
                 ),
-                Text(menutItem.price.toString()),
+                Text(
+                  '\$' + menutItem.price.toString(),
+                  style: TextStyle(
+                      fontSize: 24.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.2),
+                ),
               ],
+            ),
+          ),
+          Positioned(
+            bottom: 10.0,
+            right: 10.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: IconButton(
+                icon: Icon(
+                  Icons.add,
+                  size: 30.0,
+                  color: Colors.white,
+                ),
+                onPressed: () {},
+              ),
             ),
           ),
         ],
