@@ -8,7 +8,7 @@ The app has no functionality, only simple page navigation.
 ## SCREENSHOTS
 
 ### Page 1
-[Imgur](https://i.imgur.com/aHiOa2g.jpg)
+![alt text](https://i.imgur.com/aHiOa2g.jpg)
 
 ### Page 2
-[Imgur](https://i.imgur.com/U0lzD7V.jpg)
+![alt text](https://i.imgur.com/U0lzD7V.jpg)
