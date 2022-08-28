@@ -124,23 +124,113 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double totalPrice = 0;
+    currentUser.cart.forEach(
+        (Order order) => totalPrice += order.food.price * order.quantity);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart (${currentUser.cart.length})'),
         centerTitle: true,
       ),
       body: ListView.separated(
-          itemBuilder: (BuildContext context, int index) {
+        itemCount: currentUser.cart.length + 1,
+        itemBuilder: (BuildContext context, int index) {
+          if (index < currentUser.cart.length) {
             Order order = currentUser.cart[index];
             return _buildCartItem(order);
-          },
-          separatorBuilder: (BuildContext context, int index) {
-            return Divider(
-              height: 1.0,
-              color: Colors.grey,
-            );
-          },
-          itemCount: currentUser.cart.length),
+          }
+          return Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Estimated Delivery Time:',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      '25 Min',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Total Cost:',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      '\$' + totalPrice.toStringAsFixed(2),
+                      style: TextStyle(
+                        color: Colors.green[700],
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 80.0,
+                ),
+              ],
+            ),
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return Divider(
+            height: 1.0,
+            color: Colors.grey,
+          );
+        },
+      ),
+      bottomSheet: TextButton(
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.all(0),
+        ),
+        onPressed: () {},
+        child: Container(
+          height: 80.0,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                offset: Offset(0, -1),
+                blurRadius: 6.0,
+              ),
+            ],
+          ),
+          child: Center(
+            child: Text(
+              'CHECKOUT',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
