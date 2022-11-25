@@ -12,7 +12,7 @@ The app has no functionality, only simple page navigation.
 
 ### 1. Page 1
 
-<img src="https://i.imgur.com/aHiOa2g.jpg" alt="page 1" width="30%"/> <img src="https://i.imgur.com/U0lzD7V.jpg" alt="page 1" width="30%"/>
+<img src="https://i.imgur.com/aHiOa2g.jpg" alt="page 1" width="30%"/> <img src="https://i.imgur.com/U0lzD7V.jpg" alt="page 1" width="30%"/><img src="[https://i.imgur.com/aHiOa2g.jpg](https://i.imgur.com/Y1h946l.png)" alt="page 1" width="30%"/>
 
 ## DOWNLOAD LINK
 
